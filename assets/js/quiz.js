@@ -190,6 +190,9 @@
       checkBtn.addEventListener('click', () => {
         ensureAnswer(q.id).checked = true;
         renderQuestion();
+        const rect = els.btnNext.getBoundingClientRect();
+        const targetY = window.scrollY + rect.top - (window.innerHeight - rect.height) / 2;
+        window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
       });
     }
 
@@ -208,6 +211,7 @@
     if (state.current > 0) {
       state.current -= 1;
       renderQuestion();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   });
 
@@ -215,6 +219,7 @@
     if (state.current < state.list.length - 1) {
       state.current += 1;
       renderQuestion();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       finish();
     }
@@ -267,6 +272,7 @@
     els.questionArea.hidden = true;
     els.navRow.hidden = true;
     els.resultsArea.hidden = false;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 
     const partRowsHtml = Object.values(partStats).map((p) => {
       const partPct = Math.round((p.correct / p.total) * 100);
