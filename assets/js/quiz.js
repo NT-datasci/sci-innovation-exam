@@ -138,13 +138,13 @@
     if (locked) {
       const isCorrect = ans.selected === q.correct;
       explainHtml = `<div class="explain-box ${isCorrect ? 'right-answer' : 'wrong-answer'}">
-        <div class="label">${isCorrect ? '✅ ถูกต้อง' : '❌ ไม่ถูกต้อง'} · คำอธิบาย</div>
+        <div class="label">${isCorrect ? 'ถูกต้อง' : 'ไม่ถูกต้อง'} · คำอธิบาย</div>
         <div>${q.explanation}</div>
       </div>`;
     }
 
     const hintBoxHtml = ans.hintUsed
-      ? `<div class="hint-box">💡 <span>${escapeText(q.hint || 'ข้อนี้ยังไม่มี hint')}</span></div>`
+      ? `<div class="hint-box"><div class="label">คำแนะนำ</div><div>${escapeText(q.hint || 'ข้อนี้ยังไม่มี hint')}</div></div>`
       : '';
 
     const checkBtnHtml = state.mode === 'practice' && !locked
@@ -163,7 +163,7 @@
         ${hintBoxHtml}
         ${explainHtml}
         <div class="aux-row">
-          <button class="btn btn-ghost" id="btn-hint" ${ans.hintUsed ? 'disabled' : ''}>💡 ขอ Hint</button>
+          <button class="btn btn-ghost" id="btn-hint" ${ans.hintUsed ? 'disabled' : ''}>ขอ Hint</button>
           ${checkBtnHtml}
         </div>
       </div>
@@ -302,7 +302,7 @@
           <div class="label">คำอธิบาย</div>
           <div>${q.explanation}</div>
         </div>
-        ${q.hint ? `<div class="hint-box" style="margin-top:8px;">💡 <span>${escapeText(q.hint)}</span></div>` : ''}
+        ${q.hint ? `<div class="hint-box" style="margin-top:8px;"><div class="label">คำแนะนำ</div><div>${escapeText(q.hint)}</div></div>` : ''}
       </div>`;
     }).join('');
 
