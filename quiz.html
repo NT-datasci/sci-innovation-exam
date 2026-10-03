@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ทำข้อสอบ · SCI67-310</title>
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">SCI67-310 <span>คลังข้อสอบ</span></div>
+    <div class="nav-links">
+      <a href="index.html">หน้าแรก</a>
+      <a href="guide.html">คู่มือเตรียมสอบ</a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div id="setup-loading" class="card" style="text-align:center;">กำลังโหลดข้อสอบ...</div>
+
+  <div id="quiz-running" class="quiz-topbar" hidden>
+    <div class="progress-label" id="progress-label">ข้อ 1/40</div>
+    <div class="progress-track"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+    <div id="timer-display" class="timer" hidden>60:00</div>
+    <button class="btn btn-ghost" id="btn-finish-early">ส่งคำตอบ</button>
+  </div>
+
+  <div id="question-area" hidden></div>
+
+  <div id="nav-row" class="nav-row" hidden>
+    <button class="btn btn-ghost" id="btn-prev">← ก่อนหน้า</button>
+    <button class="btn btn-primary" id="btn-next">ถัดไป →</button>
+  </div>
+
+  <div id="results-area" hidden></div>
+
+</div>
+
+<script src="assets/js/app.js"></script>
+<script src="assets/js/quiz.js"></script>
+
+</body>
+</html>
