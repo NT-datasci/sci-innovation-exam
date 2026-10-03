@@ -51,20 +51,6 @@ node scripts/build-data.mjs
 
 สคริปต์นี้ไม่ใช้ npm package ใด ๆ (pure Node) และจะ validate ว่าได้ครบ 200 ข้อ แต่ละข้อมี 4 ตัวเลือกและเฉลยครบ ก่อนเขียนไฟล์
 
-## Deploy ขึ้น GitHub Pages
+## Deploy
 
-โปรเจกต์นี้เตรียม GitHub Actions workflow (`.github/workflows/deploy-pages.yml`) ไว้ให้แล้ว — deploy ทุกครั้งที่ push เข้า branch `main` โดยไม่ต้อง build อะไรเพิ่ม (เป็น static site ล้วน)
-
-ขั้นตอนที่ต้องทำเอง (ยังไม่ได้ push จากเครื่องนี้):
-
-1. สร้าง repository ใหม่บน GitHub.com (public หรือ private ก็ได้)
-2. เพิ่ม remote แล้ว push:
-   ```bash
-   git remote add origin <URL ของ repo ที่สร้าง>
-   git branch -M main
-   git push -u origin main
-   ```
-3. ไปที่ repo บน GitHub → **Settings → Pages** → ในหัวข้อ **Build and deployment** เลือก **Source = GitHub Actions**
-4. รอ workflow รันจบ (ดูได้ที่แท็บ **Actions**) แล้วเว็บจะพร้อมใช้งานที่ URL ที่ GitHub Pages แสดงให้ (รูปแบบ `https://<username>.github.io/<repo>/`)
-
-หลังจากตั้งค่าครั้งแรกแล้ว ทุกครั้งที่ `git push` เข้า `main` เว็บจะ deploy ใหม่ให้อัตโนมัติ
+เว็บไซต์ deploy อยู่ที่ **https://nt-datasci.github.io/sci-innovation-exam/** ผ่าน GitHub Actions workflow (`.github/workflows/deploy-pages.yml`) ซึ่งจะ build และ deploy ใหม่ให้อัตโนมัติทุกครั้งที่ push เข้า branch `main`
